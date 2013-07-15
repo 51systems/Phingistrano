@@ -9,4 +9,10 @@
     <import file="${phingistrano.dir}/rollback/build.xml" />
     <import file="${phingistrano.dir}/tunnel/build.xml" />
 
+    <target name="help" >
+        <exec command="phing -list -quiet" dir="${project.basedir}" outputProperty="modules" />
+        <php expression="substr('${modules}', 0, strpos('${modules}','Subtargets:'))" returnProperty="modules" level="debug"/>
+        <echo msg="${modules}" />
+    </target>
+
 </project>
